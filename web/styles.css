@@ -323,6 +323,12 @@ h1, h2, h3 {
 /* Responsive */
 @media (max-width: 768px) {
     .menu { display: none; }
+    .hero {
+        height: 100vw;
+    }
+    .hero-image {
+        background-attachment: scroll;
+    }
     .hero-content h1 {
         font-size: 1.2rem;
     }
