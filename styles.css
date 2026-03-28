@@ -129,7 +129,7 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     background-attachment: fixed;
     z-index: -1;
     transform: scale(1.05); /* for parallax/zoom out effect if wanted */
@@ -323,6 +323,14 @@ h1, h2, h3 {
 /* Responsive */
 @media (max-width: 768px) {
     .menu { display: none; }
+    .hero {
+        height: 75vw;
+        min-height: 320px;
+        max-height: 70vh;
+    }
+    .hero-image {
+        background-attachment: scroll;
+    }
     .hero-content h1 {
         font-size: 1.2rem;
     }
