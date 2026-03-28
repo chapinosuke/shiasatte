@@ -325,11 +325,11 @@
 
     document.getElementById('rbtn-prev').addEventListener('click', () => {
         const w = getBibi();
-        if (w) { w.I.Flipper.flip(-1); setTimeout(updateReaderPageInfo, 400); }
+        if (w) { w.I.Flipper.flip(1); setTimeout(updateReaderPageInfo, 400); }
     });
     document.getElementById('rbtn-next').addEventListener('click', () => {
         const w = getBibi();
-        if (w) { w.I.Flipper.flip(1); setTimeout(updateReaderPageInfo, 400); }
+        if (w) { w.I.Flipper.flip(-1); setTimeout(updateReaderPageInfo, 400); }
     });
 
     document.querySelectorAll('#reader-toc a[data-item]').forEach(link => {
@@ -350,6 +350,11 @@
             try { w.document.documentElement.style.transform = ''; } catch(e) {}
         }
     });
+
+    // iOS Safari ピンチズーム防止
+    document.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
 
     // Keyboard: Escape to close
     document.addEventListener('keydown', (e) => {
