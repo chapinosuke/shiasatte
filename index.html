@@ -166,13 +166,9 @@
         <div class="container fade-in-scroll">
             <h2 class="section-title">物語の始まり</h2>
             <div class="about-text">
-                <p>「ここにいてはいけない」</p>
-                <p>そう思った瞬間、明美は四国へ向かった。</p>
-                <p>思いつきとは突発ではなく、かつて温めていたものが孵化しようとしているだけ。</p>
-                <p>それは、自分に対する合図だった。</p>
-                <br>
-                <p>遍路とは、廻ることが目的ではない。</p>
-                <p>ブラックボックス化した頭を整理し、なにかしらのアウトプットが導き出せれば、それで成功といえる。</p>
+                <p>「ここにいてはいけない」そう思った瞬間、明美は四国へ向かった。</p>
+                <p>思いつきとは突発ではなく、かつて温めていたものが孵化しようとしているだけ。<br>それは、自分に対する合図だった。</p>
+                <p>遍路とは、廻ることが目的ではない。ブラックボックス化した頭を整理し、<br>なにかしらのアウトプットが導き出せれば、それで成功といえる。</p>
             </div>
         </div>
     </section>
@@ -218,9 +214,7 @@
             <li><a href="#" data-item="5">第三章　ラジオをなくした</a></li>
             <li><a href="#" data-item="6">第四章　それでよかった</a></li>
             <li class="part"><a href="#" data-item="7">第二部　大きな足のナナメから</a></li>
-            <li><a href="#" data-item="8">番外編・前編</a></li>
             <li class="part"><a href="#" data-item="9">第三部　ここにいたらいいのに</a></li>
-            <li><a href="#" data-item="10">番外編・後編</a></li>
         </ul>
     </nav>
 
@@ -248,7 +242,7 @@
         if (readerFrame.src === 'about:blank' || !readerFrame.src.includes('bibi')) {
             bibiLoaded = false;
             pendingJump = itemIndex || null;
-            readerFrame.src = 'bibi/?book=shiasatte.epub';
+            readerFrame.src = 'bibi/?book=shiasatte.epub&t=' + Date.now();
             waitForBibi();
         } else if (!bibiLoaded) {
             pendingJump = itemIndex || null;
