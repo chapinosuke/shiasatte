@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+body {
+  font-family: "游明朝", "YuMincho", "Hiragino Mincho ProN", "ヒラギノ明朝 ProN", serif;
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -epub-writing-mode: vertical-rl;
+  background: #f7f1e7;
+  color: #1f1b16;
+  line-height: 1.9;
+  margin: 0;
+  padding: 2em;
+  font-size: 1em;
+  text-align: justify;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-block-start: 3em;
+  margin-block-end: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-block-start: 2em;
+  margin-block-end: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  margin-block-start: 1.5em;
+  margin-block-end: 1em;
+}
+
+p {
+  text-indent: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+p.noindent {
+  text-indent: 0;
+}
+
+p.center {
+  text-align: center;
+  text-indent: 0;
+}
+
+p.blank {
+  height: 1.9em;
+  text-indent: 0;
+}
+
+/* 表紙 */
+body.cover-page {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: 100%;
+  text-align: center;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+.cover-title {
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-indent: 0;
+  margin: 0 0 0.3em;
+  color: #fff;
+}
+
+.cover-subtitle {
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-indent: 0;
+  margin: 0 0 3em;
+  color: #999;
+}
+
+.cover-rule {
+  width: 40px;
+  border: none;
+  border-top: 1px solid #555;
+  margin: 0 0 3em;
+}
+
+.cover-contents {
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+  text-indent: 0;
+  color: #777;
+  line-height: 2;
+}
+
+/* 扉ページ */
+body.title-page {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+
+.part-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  height: 100%;
+  text-align: center;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+.part-title {
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-indent: 0;
+  margin: 0 0 0.5em;
+  color: #999;
+}
+
+.part-subtitle {
+  font-size: 2.5em;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-indent: 0;
+  margin: 0 0 1.5em;
+  color: #fff;
+}
+
+.part-rule {
+  width: 40px;
+  border: none;
+  border-top: 1px solid #555;
+  margin: 0 0 1.5em;
+}
+
+.part-desc {
+  font-size: 0.8em;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-indent: 0;
+  color: #777;
+}
+
+/* 目次 */
+body.toc-page {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -epub-writing-mode: horizontal-tb;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body.toc-page .toc-wrap {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 3em;
+}
+
+body.toc-page nav {
+  text-align: center;
+}
+
+body.toc-page h2 {
+  text-indent: 0;
+  margin-bottom: 1.5em;
+}
+
+nav ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ol li {
+  margin-bottom: 0.8em;
+  text-indent: 0;
+}
+
+nav ol li a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav ol li.part {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 1.5em;
+}
+
+.tcy {
+  -webkit-text-combine: horizontal;
+  -epub-text-combine: horizontal;
+  text-combine-upright: all;
+}
+
+/* 挿絵 */
+.illustration {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.illustration img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}

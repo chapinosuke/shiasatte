@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>shiasatte ― 完全版 ―</title>
     <meta name="description" content="歩く×考える カジュアルへんろニクス。四国遍路を舞台にした物語。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,11 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 4px;
+    }
 
     /* ── Nav ── */
     .navbar {
@@ -60,20 +65,27 @@
         gap: 36px;
         align-items: center;
     }
-    .menu a {
+    .menu a,
+    .menu button {
+        background: none;
+        border: 0;
+        cursor: pointer;
         font-size: 0.7rem;
         letter-spacing: 0.12em;
-        color: var(--text-muted);
+        color: #bcb5ad;
         transition: color 0.3s;
     }
-    .menu a:hover { color: var(--text); }
+    .menu a:hover,
+    .menu button:hover { color: var(--text); }
     .btn-outline {
+        background: rgba(10,10,10,0.18);
         border: 1px solid rgba(255,255,255,0.25);
         padding: 8px 22px;
         border-radius: 2px;
         font-size: 0.65rem;
         letter-spacing: 0.15em;
         transition: var(--transition);
+        cursor: pointer;
     }
     .btn-outline:hover {
         background: var(--text);
@@ -84,11 +96,16 @@
     /* Hamburger */
     .hamburger {
         display: none;
-        background: none;
-        border: none;
+        width: 44px;
+        height: 44px;
+        background: rgba(10,10,10,0.32);
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 999px;
         cursor: pointer;
-        padding: 8px;
+        padding: 9px 10px;
         z-index: 1001;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
     }
     .hamburger span {
         display: block;
@@ -142,9 +159,7 @@
         letter-spacing: 0.4em;
         color: var(--accent);
         margin-bottom: 20px;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 1s 0.5s forwards;
+        text-shadow: 0 2px 18px rgba(0,0,0,0.65);
     }
     .hero-title {
         font-size: clamp(1.6rem, 3.5vw, 2.8rem);
@@ -152,17 +167,12 @@
         line-height: 1.8;
         letter-spacing: 0.08em;
         margin-bottom: 40px;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeUp 1.2s 0.8s forwards;
+        text-shadow: 0 3px 28px rgba(0,0,0,0.7);
     }
     .hero-actions {
         display: flex;
         gap: 16px;
         align-items: center;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeUp 1s 1.2s forwards;
     }
     .btn-primary {
         display: inline-block;
@@ -186,8 +196,9 @@
         padding: 16px 32px;
         font-size: 0.7rem;
         letter-spacing: 0.15em;
-        color: var(--text-muted);
-        border: 1px solid rgba(255,255,255,0.15);
+        color: #d3cdc5;
+        background: rgba(10,10,10,0.28);
+        border: 1px solid rgba(255,255,255,0.24);
         transition: var(--transition);
     }
     .btn-ghost:hover {
@@ -205,8 +216,7 @@
         flex-direction: column;
         align-items: center;
         gap: 8px;
-        opacity: 0;
-        animation: fadeUp 1s 1.8s forwards;
+        opacity: 1;
     }
     .scroll-hint span {
         font-size: 0.55rem;
@@ -309,25 +319,21 @@
         z-index: 1;
         text-align: center;
         padding: 0 48px;
-    }
-    .quote-mark {
-        font-size: 3rem;
-        color: var(--accent);
-        opacity: 0.5;
-        line-height: 1;
-        margin-bottom: 16px;
+        max-width: 720px;
     }
     .quote-text {
         font-size: clamp(1.2rem, 2.5vw, 1.8rem);
         font-weight: 200;
         letter-spacing: 0.15em;
         line-height: 2;
+        text-shadow: 0 2px 22px rgba(0,0,0,0.65);
     }
     .quote-rule {
-        width: 30px;
+        width: 44px;
         height: 1px;
         background: var(--accent);
-        margin: 32px auto 0;
+        margin: 30px auto 0;
+        opacity: 0.8;
     }
 
     /* ── Chapters ── */
@@ -342,17 +348,23 @@
     .chapters-list li:first-child {
         border-top: 1px solid rgba(255,255,255,0.06);
     }
-    .chapters-list a {
+    .chapters-list button {
         display: flex;
         align-items: center;
+        width: 100%;
+        background: none;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        text-align: left;
         padding: 28px 0;
         transition: var(--transition);
         cursor: pointer;
     }
-    .chapters-list a:hover {
+    .chapters-list button:hover {
         padding-left: 24px;
     }
-    .chapters-list a:hover .ch-num {
+    .chapters-list button:hover .ch-num {
         color: var(--accent);
     }
     .ch-num {
@@ -373,7 +385,7 @@
         color: rgba(255,255,255,0.15);
         transition: var(--transition);
     }
-    .chapters-list a:hover .ch-arrow {
+    .chapters-list button:hover .ch-arrow {
         color: var(--accent);
         transform: translateX(4px);
     }
@@ -440,7 +452,24 @@
 
     /* ── Responsive ── */
     @media (max-width: 768px) {
-        .hamburger { display: block; }
+        body.menu-open { overflow: hidden; }
+        .hamburger {
+            display: flex;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 4px;
+            background: rgba(0,0,0,0.58);
+            border-color: rgba(255,255,255,0.32);
+        }
+        .hamburger span {
+            width: 20px;
+            height: 2px;
+            margin: 0;
+        }
         .menu {
             display: none;
             position: fixed;
@@ -454,12 +483,46 @@
             z-index: 1000;
         }
         .menu.open { display: flex; }
-        .menu a { font-size: 1rem; color: var(--text); }
+        .menu a,
+        .menu button {
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .menu .btn-outline {
+            margin-top: 8px;
+            padding: 12px 30px;
+        }
 
         .navbar { padding: 0 24px; }
-        .hero-content { padding: 0 24px 60px; }
-        .hero-title { line-height: 2; }
-        .hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+        .hero {
+            height: 100svh;
+            min-height: 720px;
+        }
+        .hero-image {
+            background-position: center top;
+            filter: brightness(0.46) contrast(1.12) saturate(0.78);
+        }
+        .hero::after {
+            height: 72%;
+            background: linear-gradient(to top, var(--bg) 0%, rgba(10,10,10,0.82) 38%, transparent 100%);
+        }
+        .hero-content { padding: 0 24px max(72px, calc(env(safe-area-inset-bottom) + 56px)); }
+        .hero-title {
+            font-size: clamp(1.28rem, 5vw, 1.36rem);
+            line-height: 1.95;
+            text-shadow: 0 2px 22px rgba(0,0,0,0.65);
+        }
+        .hero-actions {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 12px;
+            width: min(100%, 260px);
+        }
+        .hero-actions .btn-primary,
+        .hero-actions .btn-ghost {
+            width: 100%;
+            text-align: center;
+        }
         .scroll-hint { display: none; }
 
         .section { padding: 100px 24px; }
@@ -473,6 +536,18 @@
 
         .divider { padding: 20px 24px; }
         .footer { padding: 48px 24px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            scroll-behavior: auto !important;
+            transition-duration: 0.01ms !important;
+        }
     }
 
     /* ── Reader modal ── */
@@ -533,6 +608,11 @@
         border-radius: 8px; transition: all 0.15s;
     }
     #reader-navbar .nav-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    #reader-navbar .nav-btn:disabled {
+        color: #333;
+        cursor: default;
+        background: none;
+    }
     #reader-navbar .nav-center { display: flex; align-items: center; gap: 4px; }
     #reader-page-info {
         font-size: 0.75rem; color: #666;
@@ -578,14 +658,14 @@
 
 <nav class="navbar" id="navbar">
     <div class="logo">SHIASATTE</div>
-    <button class="hamburger" id="hamburger" aria-label="menu">
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-controls="nav-menu" aria-expanded="false">
         <span></span><span></span><span></span>
     </button>
     <div class="menu" id="nav-menu">
         <a href="#about">Story</a>
         <a href="#chapters">Chapters</a>
         <a href="bibi-bookshelf/shiasatte.epub" download>Download</a>
-        <a href="javascript:void(0)" class="btn-outline" onclick="openReader()">READ</a>
+        <button type="button" class="btn-outline" onclick="openReader()">READ</button>
     </div>
 </nav>
 
@@ -595,7 +675,7 @@
         <div class="hero-label">A NOVEL</div>
         <h1 class="hero-title">一人にさせてもらえないから、<br>孤独が少しほしかった。</h1>
         <div class="hero-actions">
-            <a href="javascript:void(0)" class="btn-primary" onclick="openReader(3)">READ NOW</a>
+            <button type="button" class="btn-primary" onclick="openReader(3)">READ NOW</button>
             <a href="bibi-bookshelf/shiasatte.epub" download class="btn-ghost">DOWNLOAD EPUB</a>
         </div>
     </div>
@@ -624,7 +704,6 @@
 <div class="image-quote reveal">
     <div class="image-quote-bg" style="background-image: url('assets/hero.jpg');"></div>
     <div class="quote-content">
-        <div class="quote-mark">"</div>
         <div class="quote-text">流れに従って、流れに任せず。</div>
         <div class="quote-rule"></div>
     </div>
@@ -635,38 +714,38 @@
     <div class="section-title reveal">目次</div>
     <ul class="chapters-list reveal-stagger reveal">
         <li class="ch-part-header">第一部　shiasatte</li>
-        <li><a href="javascript:void(0)" onclick="openReader(3)">
+        <li><button type="button" onclick="openReader(3)">
             <span class="ch-num">第一章</span>
             <span class="ch-title">百一匹目の女</span>
             <span class="ch-arrow">→</span>
-        </a></li>
-        <li><a href="javascript:void(0)" onclick="openReader(6)">
+        </button></li>
+        <li><button type="button" onclick="openReader(6)">
             <span class="ch-num">第二章</span>
             <span class="ch-title">同行他者</span>
             <span class="ch-arrow">→</span>
-        </a></li>
-        <li><a href="javascript:void(0)" onclick="openReader(7)">
+        </button></li>
+        <li><button type="button" onclick="openReader(7)">
             <span class="ch-num">第三章</span>
             <span class="ch-title">ラジオをなくした</span>
             <span class="ch-arrow">→</span>
-        </a></li>
-        <li><a href="javascript:void(0)" onclick="openReader(8)">
+        </button></li>
+        <li><button type="button" onclick="openReader(8)">
             <span class="ch-num">第四章</span>
             <span class="ch-title">それでよかった</span>
             <span class="ch-arrow">→</span>
-        </a></li>
+        </button></li>
         <li class="ch-part-header">第二部　大きな足のナナメから</li>
-        <li><a href="javascript:void(0)" onclick="openReader(10)">
+        <li><button type="button" onclick="openReader(10)">
             <span class="ch-num">第五章</span>
             <span class="ch-title">大きな足のナナメから</span>
             <span class="ch-arrow">→</span>
-        </a></li>
+        </button></li>
         <li class="ch-part-header">第三部　ここにいたらいいのに</li>
-        <li><a href="javascript:void(0)" onclick="openReader(12)">
+        <li><button type="button" onclick="openReader(12)">
             <span class="ch-num">第六章</span>
             <span class="ch-title">ここにいたらいいのに</span>
             <span class="ch-arrow">→</span>
-        </a></li>
+        </button></li>
     </ul>
 </section>
 
@@ -682,12 +761,12 @@
 </footer>
 
 <!-- Reader Modal -->
-<div id="reader-modal">
+<div id="reader-modal" role="dialog" aria-modal="true" aria-label="SHIASATTE リーダー">
     <div id="reader-topbar">
         <span class="reader-title">SHIASATTE ― 完全版 ―</span>
-        <button class="reader-btn" onclick="closeReader()">&#10005; 閉じる</button>
+        <button class="reader-btn" onclick="closeReader()" aria-label="リーダーを閉じる">&#10005; 閉じる</button>
     </div>
-    <iframe id="reader-frame" src="about:blank" allowfullscreen></iframe>
+    <iframe id="reader-frame" src="about:blank" title="SHIASATTE EPUB reader" allowfullscreen></iframe>
     <div id="reader-navbar">
         <button class="nav-btn" id="rbtn-toc" title="目次">&#9776;</button>
         <div class="nav-center">
@@ -695,7 +774,7 @@
             <span id="reader-page-info"></span>
             <button class="nav-btn" id="rbtn-next" title="次のページ">&#9654;</button>
         </div>
-        <button class="nav-btn" id="rbtn-zoom-reset" title="表示リセット" style="font-size:12px;">1:1</button>
+        <button class="nav-btn" id="rbtn-zoom-reset" title="先頭へ" style="font-size:12px;">TOP</button>
     </div>
 </div>
 
@@ -732,17 +811,24 @@ window.addEventListener('scroll', () => {
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('open');
+    const isOpen = hamburger.classList.toggle('active');
+    navMenu.classList.toggle('open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
 });
-navMenu.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
+navMenu.querySelectorAll('a, button').forEach(item => {
+    item.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'メニューを開く');
     });
 });
 
 // Scroll reveal
+const revealItems = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
         if (e.isIntersecting) {
@@ -751,7 +837,19 @@ const observer = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+revealItems.forEach(el => observer.observe(el));
+
+function revealVisibleItems() {
+    revealItems.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            el.classList.add('visible');
+            observer.unobserve(el);
+        }
+    });
+}
+requestAnimationFrame(revealVisibleItems);
+window.addEventListener('hashchange', () => setTimeout(revealVisibleItems, 80));
 
 // ── Reader ──
 const readerModal = document.getElementById('reader-modal');
@@ -759,82 +857,62 @@ const readerFrame = document.getElementById('reader-frame');
 const readerPageInfo = document.getElementById('reader-page-info');
 const readerToc = document.getElementById('reader-toc');
 const readerOverlay = document.getElementById('reader-overlay');
-let pendingJump = null;
-let bibiLoaded = false;
+const readerBase = 'bibi-bookshelf/shiasatte/OEBPS/text/';
+const readerItems = [
+    { item: 2, title: '第一部　shiasatte', file: 'part1_title.xhtml' },
+    { item: 3, title: '第一章　百一匹目の女', file: 'ch01a.xhtml' },
+    { item: 4, title: '挿絵', file: 'img_ch01_01.xhtml' },
+    { item: 5, title: '第一章　百一匹目の女（続）', file: 'ch01b.xhtml' },
+    { item: 6, title: '第二章　同行他者', file: 'ch02.xhtml' },
+    { item: 7, title: '第三章　ラジオをなくした', file: 'ch03.xhtml' },
+    { item: 8, title: '第四章　それでよかった', file: 'ch04.xhtml' },
+    { item: 9, title: '第二部　大きな足のナナメから', file: 'part2_title.xhtml' },
+    { item: 10, title: '第五章　大きな足のナナメから', file: 'ch05.xhtml' },
+    { item: 11, title: '第三部　ここにいたらいいのに', file: 'part3_title.xhtml' },
+    { item: 12, title: '第六章　ここにいたらいいのに', file: 'ch06.xhtml' }
+];
+let currentReaderIndex = 1;
 
-function getBibi() {
-    try {
-        const w = readerFrame.contentWindow;
-        return (w && w.R && w.I && w.I.Flipper) ? w : null;
-    } catch(e) { return null; }
+function findReaderIndex(itemIndex) {
+    const found = readerItems.findIndex(item => item.item === itemIndex);
+    return found >= 0 ? found : 1;
 }
 
-function openReader(itemIndex) {
+function loadReaderItem(index) {
+    currentReaderIndex = Math.max(0, Math.min(index, readerItems.length - 1));
+    const item = readerItems[currentReaderIndex];
+    readerPageInfo.textContent = item.title;
+    readerFrame.src = readerBase + item.file;
+    document.querySelectorAll('#reader-toc a').forEach(link => {
+        link.classList.toggle('active', Number(link.dataset.item) === item.item);
+    });
+    document.getElementById('rbtn-prev').disabled = currentReaderIndex === 0;
+    document.getElementById('rbtn-next').disabled = currentReaderIndex === readerItems.length - 1;
+}
+
+function scrollReaderToStart() {
+    try {
+        const doc = readerFrame.contentDocument;
+        const maxX = Math.max(
+            doc.documentElement.scrollWidth,
+            doc.body ? doc.body.scrollWidth : 0
+        );
+        readerFrame.contentWindow.scrollTo(maxX, 0);
+    } catch(e) {}
+}
+
+function openReader(itemIndex = 3) {
     readerModal.classList.add('open');
     document.body.style.overflow = 'hidden';
-    if (readerFrame.src === 'about:blank' || !readerFrame.src.includes('bibi')) {
-        bibiLoaded = false;
-        pendingJump = itemIndex || null;
-        readerFrame.src = 'bibi/?book=shiasatte.epub&t=' + Date.now();
-        waitForBibi();
-    } else if (!bibiLoaded) {
-        pendingJump = itemIndex || null;
-    } else if (itemIndex) {
-        jumpToItem(itemIndex);
-    }
-}
-
-function waitForBibi() {
-    const check = setInterval(() => {
-        const w = getBibi();
-        if (w) {
-            clearInterval(check);
-            bibiLoaded = true;
-            try {
-                const style = w.document.createElement('style');
-                style.textContent = `
-                    #bibi-main { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1) !important; }
-                    #bibi-main-book { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease !important; }
-                `;
-                w.document.head.appendChild(style);
-                w.document.addEventListener('touchmove', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
-                let lastTap = 0;
-                w.document.addEventListener('touchend', e => { if (Date.now() - lastTap < 300) e.preventDefault(); lastTap = Date.now(); }, { passive: false });
-            } catch(e) {}
-            if (pendingJump) {
-                setTimeout(() => jumpToItem(pendingJump), 300);
-                pendingJump = null;
-            }
-        }
-    }, 300);
-}
-
-function jumpToItem(idx) {
-    const w = getBibi();
-    if (!w || !w.R.Items[idx]) return;
-    const tp = w.R.Items[idx].Pages[0];
-    const ti = w.R.Pages.indexOf(tp);
-    const cp = w.R.Current.Pages || w.R.IntersectingPages;
-    const ci = cp && cp.length ? w.R.Pages.indexOf(cp[0]) : 0;
-    if (ti - ci !== 0) w.I.Flipper.flip(ti - ci);
-    setTimeout(updatePageInfo, 500);
+    loadReaderItem(findReaderIndex(itemIndex));
+    setTimeout(() => readerFrame.focus(), 100);
 }
 
 function closeReader() {
     readerModal.classList.remove('open');
     document.body.style.overflow = '';
     closeReaderToc();
-}
-
-function updatePageInfo() {
-    const w = getBibi();
-    if (!w) return;
-    const cur = w.R.Current.Pages;
-    if (cur && cur.length) {
-        const f = w.R.Pages.indexOf(cur[0]) + 1;
-        const l = w.R.Pages.indexOf(cur[cur.length - 1]) + 1;
-        readerPageInfo.textContent = (f === l ? f : f + '-' + l) + ' / ' + w.R.Pages.length;
-    }
+    readerPageInfo.textContent = '';
 }
 
 function openReaderToc() { readerToc.classList.add('open'); readerOverlay.classList.add('show'); }
@@ -846,36 +924,32 @@ document.getElementById('rbtn-toc').addEventListener('click', () => {
 readerOverlay.addEventListener('click', closeReaderToc);
 
 document.getElementById('rbtn-prev').addEventListener('click', () => {
-    const w = getBibi(); if (w) { w.I.Flipper.flip(1); setTimeout(updatePageInfo, 400); }
+    loadReaderItem(currentReaderIndex - 1);
 });
 document.getElementById('rbtn-next').addEventListener('click', () => {
-    const w = getBibi(); if (w) { w.I.Flipper.flip(-1); setTimeout(updatePageInfo, 400); }
+    loadReaderItem(currentReaderIndex + 1);
 });
 
 document.querySelectorAll('#reader-toc a[data-item]').forEach(link => {
     link.addEventListener('click', e => {
         e.preventDefault();
-        document.querySelectorAll('#reader-toc a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-        jumpToItem(parseInt(link.dataset.item));
+        loadReaderItem(findReaderIndex(parseInt(link.dataset.item)));
         closeReaderToc();
     });
 });
 
 document.getElementById('rbtn-zoom-reset').addEventListener('click', () => {
-    const w = getBibi();
-    if (w) { try { w.I.Loupe.resetZoom(); } catch(e) {} }
+    scrollReaderToStart();
+});
+
+readerFrame.addEventListener('load', () => {
+    setTimeout(scrollReaderToStart, 80);
 });
 
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && readerModal.classList.contains('open')) closeReader();
 });
 
-setInterval(updatePageInfo, 1000);
-
-document.addEventListener('touchmove', e => {
-    if (e.touches.length > 1) e.preventDefault();
-}, { passive: false });
 </script>
 </body>
 </html>

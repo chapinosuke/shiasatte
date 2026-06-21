@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="BookId" xml:lang="ja" prefix="rendition: http://www.idpf.org/vocab/rendition/#">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="BookId">urn:uuid:shiasatte-complete-2024</dc:identifier>
+    <dc:title>shiasatte ― 完全版 ―</dc:title>
+    <dc:language>ja</dc:language>
+    <dc:creator>shiasatte</dc:creator>
+    <meta property="dcterms:modified">2026-03-28T00:00:00Z</meta>
+    <meta property="rendition:layout">reflowable</meta>
+  </metadata>
+  <manifest>
+    <item id="css" href="css/style.css" media-type="text/css"/>
+    <item id="nav" href="text/toc.xhtml" media-type="application/xhtml+xml" properties="nav"/>
+    <item id="cover" href="text/cover.xhtml" media-type="application/xhtml+xml"/>
+    <item id="part1_title" href="text/part1_title.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch01a" href="text/ch01a.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch01b" href="text/ch01b.xhtml" media-type="application/xhtml+xml"/>
+    <item id="img_ch01_01" href="images/ch01_01.jpg" media-type="image/jpeg"/>
+    <item id="page_img_ch01_01" href="text/img_ch01_01.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch02" href="text/ch02.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch03" href="text/ch03.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch04" href="text/ch04.xhtml" media-type="application/xhtml+xml"/>
+    <item id="part2_title" href="text/part2_title.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch05" href="text/ch05.xhtml" media-type="application/xhtml+xml"/>
+    <item id="part3_title" href="text/part3_title.xhtml" media-type="application/xhtml+xml"/>
+    <item id="ch06" href="text/ch06.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine page-progression-direction="rtl">
+    <itemref idref="cover"/>
+    <itemref idref="nav"/>
+    <itemref idref="part1_title"/>
+    <itemref idref="ch01a"/>
+    <itemref idref="page_img_ch01_01"/>
+    <itemref idref="ch01b"/>
+    <itemref idref="ch02"/>
+    <itemref idref="ch03"/>
+    <itemref idref="ch04"/>
+    <itemref idref="part2_title"/>
+    <itemref idref="ch05"/>
+    <itemref idref="part3_title"/>
+    <itemref idref="ch06"/>
+  </spine>
+</package>
