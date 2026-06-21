@@ -319,25 +319,21 @@
         z-index: 1;
         text-align: center;
         padding: 0 48px;
-    }
-    .quote-mark {
-        font-size: 3rem;
-        color: var(--accent);
-        opacity: 0.5;
-        line-height: 1;
-        margin-bottom: 16px;
+        max-width: 720px;
     }
     .quote-text {
         font-size: clamp(1.2rem, 2.5vw, 1.8rem);
         font-weight: 200;
         letter-spacing: 0.15em;
         line-height: 2;
+        text-shadow: 0 2px 22px rgba(0,0,0,0.65);
     }
     .quote-rule {
-        width: 30px;
+        width: 44px;
         height: 1px;
         background: var(--accent);
-        margin: 32px auto 0;
+        margin: 30px auto 0;
+        opacity: 0.8;
     }
 
     /* ── Chapters ── */
@@ -708,7 +704,6 @@
 <div class="image-quote reveal">
     <div class="image-quote-bg" style="background-image: url('assets/hero.jpg');"></div>
     <div class="quote-content">
-        <div class="quote-mark">"</div>
         <div class="quote-text">流れに従って、流れに任せず。</div>
         <div class="quote-rule"></div>
     </div>
